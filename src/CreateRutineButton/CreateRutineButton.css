@@ -1,0 +1,18 @@
+.Button-add{
+    border-radius: 100%;
+    min-width: 60px;
+    min-height: 60px;
+    position: fixed;
+    left: 90%;
+    bottom:20px;
+    font-size: 45px;
+    border: 0;
+    color: white;
+    background-color: green;
+    cursor: pointer;
+}
+
+.Button-add:hover{
+    transform: rotate(360deg);
+    transition: 1s;
+}
