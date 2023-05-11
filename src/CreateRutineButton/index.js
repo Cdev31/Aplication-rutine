@@ -1,7 +1,9 @@
 import './CreateRutineButton.css'
 
-export function CreateRutineButton(){
+export function CreateRutineButton({changeColor,letra}){
     return (
-        <button className='Button-add'>+</button>
+        <button 
+        style={{backgroundColor: changeColor,color:letra}}
+        className='Button-add'>+</button>
     )
 }

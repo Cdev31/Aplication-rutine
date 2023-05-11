@@ -6,10 +6,10 @@
     left: 90%;
     bottom:20px;
     font-size: 45px;
-    border: 0;
     color: white;
-    background-color: green;
+    background-color: rgb(19, 0, 124);
     cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.521);
 }
 
 .Button-add:hover{

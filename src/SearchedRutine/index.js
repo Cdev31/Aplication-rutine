@@ -2,14 +2,26 @@ import './SearchRutine.css'
 
 export function SearchRutine({
     serchValue,
-    setSerchValue
+    setSerchValue,
+    color
 }){
+    let newColor = color;
+    if(color ==='white'){
+        newColor = 'black'
+    }
     return (
-        <input 
+        <input
+        style={
+            {
+            borderBlockColor:newColor,
+            borderInlineColor:newColor,
+            color:newColor}} 
         value={serchValue}
         onChange={(event)=>{
             setSerchValue(event.target.value)
         }}
-        type="text" placeholder="Buscar..."/>
-    )
+        placeholder='Search...'
+        type="text"/>
+
+        )
 }
