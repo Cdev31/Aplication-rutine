@@ -2,6 +2,7 @@
     display: grid;
     border-radius: 20px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
     border-bottom: 4px solid rgba(13, 0, 88, 0.342);
     border-top: 4px solid rgba(10, 0, 99, 0.342);
     column-gap: 10px;
@@ -62,13 +63,17 @@
     border-bottom:1px solid rgb(255, 255, 255);
 }
 
-.Item-Rutine li p{
-    grid-column: 3/4;
+.Item-Rutine li .Item-Ejercicios{
+    grid-column: 2/3;
     max-width: 150px;
     padding-left: 10px;
 }
 
-
+.Item-Rutine li .Item-Series{
+    grid-column: 3/4;
+    max-width: 150px;
+    padding-left: 10px;
+}
 
 .Item-Completed{
     grid-column: 1 / 2;
