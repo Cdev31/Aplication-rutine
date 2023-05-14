@@ -1,5 +1,5 @@
 
-input{
+.Input-Searching{
     position: relative;
     left: 32%;
     width: 100px;
@@ -20,7 +20,7 @@ input{
 }
 
 
-input:focus{
+.Input-Searching:focus{
    transform: scale(1.04);
    outline: none;
    transition: 1s;

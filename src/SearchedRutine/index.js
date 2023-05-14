@@ -11,6 +11,7 @@ export function SearchRutine({
     }
     return (
         <input
+        className='Input-Searching'
         style={
             {
             borderBlockColor:newColor,

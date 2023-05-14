@@ -3,12 +3,20 @@ import {ListChangeColor} from '../LIstChangeColor'
 import {ItemColor} from '../ItemColor'
 import React from 'react'
 
-export function MenuRutine({changeColor,setChangeColor,colors,setChangeTextColor}){
+export function MenuRutine({changedAll,changedComplete,setChangeColor,colors,setChangeTextColor}){
     const [close,setClose] = React.useState('none')
     return (
         <ul className='Menu-items'>
-            <li>Rutinas</li>
-            <li>Rutinas completadas</li>
+            <li
+            onClick={()=>{
+                changedAll()
+            }}
+            >Rutinas</li>
+            <li
+            onClick={()=>{
+                changedComplete()
+            }}
+            >Rutinas completadas</li>
             <li 
              onClick={()=>{
                close == 'none' ? setClose('flex') : setClose('none')

@@ -1,0 +1,101 @@
+
+.Form-Create-Rutine{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    border: 1px solid black;
+    left: 36%;
+    width: 400px;
+    height: 390px;
+    background-color: wheat;
+    bottom: 25%;
+    gap: 10px;
+}
+
+.Form-Create-Rutine .Input-Form{
+    border-bottom: 1px solid black;
+    border: none;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.Form-Create-Rutine div{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+}
+
+.Form-Create-Rutine .Contain-Info{
+    display: grid;
+    grid-template-columns: repeat(4,minmax(80px,auto));
+    grid-auto-rows: 30px;
+    gap: 5px;
+}
+
+.Contain-Info .Muscle-Label{
+    grid-column: 1 /3;
+    grid-row: 1/2;
+}
+
+.Contain-Info .Input-Muscle{
+    grid-column: 1 /3;
+    grid-row: 2/3;
+}
+
+.Contain-Info .Date-Label{
+    grid-column: 3 /5;
+    grid-row: 1/2;
+}
+
+.Contain-Info .Input-Date{
+    grid-column: 3/5;
+    grid-row: 2/3;
+}
+
+.Contain-Info .Quantity-Label{
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
+
+.Contain-Info .Input-Quantity{
+    grid-row: 3/4;
+    grid-column: 3/4;
+}
+
+
+
+.Form-Create-Rutine .Input-Form:focus{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+.Containt-Exercise{
+    display: grid;
+    grid-template-columns: 70px minmax(50px,auto) 45px minmax(10px,auto);
+}
+
+.Input-Form-Exercise{
+    height: 30px;
+}
+
+.Containt-Exercise label{
+    align-self: center;
+}
+
+.Containt-Exercise .Input-Form-Exercise{
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.Containt-Buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    place-content: center;
+}
+
+.Containt-Buttons button{
+    width: 80px;
+    height: 50px;
+}

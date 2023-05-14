@@ -5,30 +5,11 @@ import {MenuRutine} from '../MenuRutine'
 import {ItemRutine} from '../ItemRutine'
 import {CreateRutineButton} from '../CreateRutineButton'
 import {ListRutine} from '../ListRutine'
-import React from 'react';
+import  {useLocalStorage} from './useLocalStorage'
+import {Modal} from '../Moda'
+import {TodoForm} from '../TodoForm'
 
-const defaultRutine=[
-  {id:1,musculo: 'pecho', ejercicios: [
-    {idItem:'A1', ejercicio:'press banca', repeticiones:'4 x 12',done:true},
-    {idItem:'A2', ejercicio:'press inclinado', repeticiones:' 4 x 20',done:false}
-  ],dia: 'Martes',completed:false},
-  {id:2,musculo: 'pierna', ejercicios: [
-    {idItem:'B2', ejercicio:'sentadilla vulgara ', repeticiones:'4 x 12',done:false},
-    {idItem:'B3', ejercicio:' sentadilla con barra ',repeticiones:'4 x 20',done:false},
-  ],dia: 'Jueves',completed:false},
-  {id:3,musculo: 'espalda', ejercicios: [
-    {idItem:'C1', ejercicio:'sentadilla vulgara', repeticiones:'4 x 12',done:false},
-    {idItem:'C2', ejercicio:' sentadilla con barra', repeticiones: '4 x 20',done:false},
-    {idItem:'C3', ejercicio:'sentadilla vulgara', repeticiones: '4 x 12',done:false},
-    {idItem:'C4', ejercicio:' sentadilla con barra', repeticiones: '4 x 20',done:false}
-  ],dia: 'Jueves',completed:false},
-  {id:4,musculo: 'espalda', ejercicios: [
-    {idItem:'D1', ejercicio:'sentadilla vulgara', repeticiones:'4 x 12',done:false},
-    {idItem:'D2', ejercicio:' sentadilla con barra', repeticiones: '4 x 20',done:false},
-    {idItem:'D3', ejercicio:'sentadilla vulgara', repeticiones: '4 x 12',done:false},
-    {idItem:'D4', ejercicio:' sentadilla con barra', repeticiones: '4 x 20',done:false}
-  ],dia: 'Jueves',completed:false}
-]
+import React from 'react';
 
 const colors = [
   {color: 'white',letra:'black'},
@@ -40,14 +21,14 @@ const colors = [
 ]
 
 function App() {
- 
+  const {item:todo,changeItem:changeTodo,saveTodo} = useLocalStorage('TODOS_V1',[])
+
   const [serchValue,setSerchValue] = React.useState('')
   const [changeColor,setChangeColor] = React.useState(colors[0].color)
   const [changeTextColor,setChangeTextColor] = React.useState(colors[0].letra)
-  const [completed,setCompleted] = React.useState(defaultRutine)
-  const [done,setDone] = React.useState(defaultRutine)
-  const [deleteCheck,setDeleteCheck] = React.useState(defaultRutine)
-  const [deleted,setDeleted] = React.useState(defaultRutine)
+  const [completed,setCompleted] = React.useState(todo)
+  const [deleteCheck,setDeleteCheck] = React.useState(todo)
+  const [openModal,setOpenModal] = React.useState(false)
 
   const serchRutine = completed.filter((value)=> {
     const serchedRutine = value.musculo.toLowerCase()
@@ -55,10 +36,18 @@ function App() {
     return serchedRutine.includes(inputValue)
   })
 
- 
-  
+  const changedComplete = ()=>{
+    const newRutine = [...todo]
+    setCompleted(newRutine.filter((e)=>e.completed ===true))
+  }
+
+  const changedAll = ()=>{
+    const newRutine = [...todo]
+    setCompleted(newRutine.filter((e)=> e.completed === false))
+  }
+
   const complete = (id)=>{
-    const newRutine = [...completed]
+    const newRutine = [...todo]
 
     let lengthDone =0;
     newRutine.forEach((e)=>{
@@ -66,6 +55,7 @@ function App() {
         lengthDone = e.ejercicios.length
       }
     })
+   
     const index = newRutine.findIndex((e)=> e.id === id)
 
     let counter =0;
@@ -74,16 +64,16 @@ function App() {
         counter++
       }
     })
+
     if(lengthDone === counter){
       newRutine[index].completed = true
-      newRutine.splice(index,1)
-      setCompleted(newRutine)
     }
-    console.log(completed)
+    changeTodo(newRutine)
+    
   }
 
   const onCheck = (idItem,idRutine)=>{
-    const newRutineItem = [...defaultRutine]
+    const newRutineItem = [...completed]
     newRutineItem.map((e)=>{
       if(e.id === idRutine){
         e.ejercicios.map((e,i)=>{
@@ -93,12 +83,12 @@ function App() {
         })
       }
     })
-    setDone(newRutineItem)
+    changeTodo(newRutineItem)
     complete(idRutine)
   }
 
   const onCheckDelete = (idItem,idRutine)=>{
-    const newRutineItem = [...defaultRutine]
+    const newRutineItem = [...todo]
     newRutineItem.map((item)=>{
       if(item.id === idRutine){
         const index = item.ejercicios.findIndex((e)=>e.idItem === idItem)
@@ -109,11 +99,7 @@ function App() {
     complete(idRutine)
   }
  
-  const onCompleted = ()=>{
-    const newRutineTodo = [...defaultRutine]
 
-
-  }
   
   return (
    <>
@@ -121,6 +107,8 @@ function App() {
      setChangeTextColor={setChangeTextColor}
      changeColor={changeColor}
      colors={colors}
+     changedAll={changedAll}
+     changedComplete={changedComplete}
      setChangeColor={setChangeColor}
    />
    <SearchRutine 
@@ -147,8 +135,18 @@ function App() {
    </ListRutine>
    <CreateRutineButton 
     letra={changeTextColor}
-    changeColor={changeColor}
-   />
+    setOpenModal={setOpenModal}
+    changeColor={changeColor}/>
+    {openModal && (
+      <Modal>
+        <TodoForm
+        changeColor={changeColor}
+        letra={changeTextColor}
+        setOpenModal={setOpenModal}
+        saveTodo={saveTodo}
+        />
+      </Modal>
+    )}
    </>
   );
 }
