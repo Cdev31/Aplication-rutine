@@ -3,13 +3,14 @@
     display: flex;
     position: fixed;
     flex-direction: column;
-    border: 1px solid black;
+    font-family: 'Arvo', serif;
     left: 36%;
-    width: 400px;
-    height: 390px;
-    background-color: wheat;
+    width: 380px;
+    height: 420px;
+    border: 2px solid rgba(0, 0, 0, 0.301);
+    background-color: rgb(255, 255, 255);
     bottom: 25%;
-    gap: 10px;
+    gap: 5px;
 }
 
 .Form-Create-Rutine .Input-Form{
@@ -22,7 +23,7 @@
 .Form-Create-Rutine div{
     padding-left: 5px;
     padding-right: 5px;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 .Form-Create-Rutine .Contain-Info{
@@ -32,42 +33,67 @@
     gap: 5px;
 }
 
+.Contain-Info h2{
+    color: rgb(238, 86, 26);
+    font-family: 'Arvo', serif;
+    grid-row: 1 /2;
+    place-self: center;
+    grid-column: 1 /5;
+}
 .Contain-Info .Muscle-Label{
+    color: rgb(238, 86, 26);
+    font-size: 20px;
     grid-column: 1 /3;
-    grid-row: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: center;
 }
 
 .Contain-Info .Input-Muscle{
     grid-column: 1 /3;
-    grid-row: 2/3;
+    font-size: 16px;
+    padding-left: 5px;
+    background-color: rgba(0, 0, 0, 0.144);
+    height: 25px;
+    grid-row: 3/4;
 }
 
+
 .Contain-Info .Date-Label{
+    color: rgb(238, 86, 26);
+    font-size: 20px;
     grid-column: 3 /5;
-    grid-row: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: center;
 }
 
 .Contain-Info .Input-Date{
     grid-column: 3/5;
-    grid-row: 2/3;
+    background-color: rgba(0, 0, 0, 0.144);
+    height: 25px;
+    grid-row: 3/4;
 }
 
 .Contain-Info .Quantity-Label{
-    grid-row: 3/4;
+    color: rgb(238, 86, 26);
+    grid-row: 4/5;
     grid-column: 2/3;
 }
 
 .Contain-Info .Input-Quantity{
-    grid-row: 3/4;
+    grid-row: 4/5;
+    background-color: rgba(0, 0, 0, 0.144);
+    height: 25px;
+    padding-left: 5px;
     grid-column: 3/4;
 }
 
 
 
 .Form-Create-Rutine .Input-Form:focus{
-    border: none;
     outline: none;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid rgb(110, 6, 11);
 }
 
 .Containt-Exercise{
@@ -76,26 +102,47 @@
 }
 
 .Input-Form-Exercise{
-    height: 30px;
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.144);
+    font-size: 18px;
+    padding-left: 5px;
 }
 
 .Containt-Exercise label{
+    font-size: 15px;
+    color: rgb(238, 86, 26);
     align-self: center;
 }
 
-.Containt-Exercise .Input-Form-Exercise{
-    font-size: 16px;
-    padding-left: 5px;
-}
 
 .Containt-Buttons{
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 10px;
     place-content: center;
 }
 
 .Containt-Buttons button{
-    width: 80px;
+    width: 300px;
+    border-radius: 10px;
+    border: 0;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.397);
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
     height: 50px;
+}
+
+.Containt-Buttons button:hover{
+    transform: scale(1.05);
+}
+
+
+
+.Containt-Buttons .Cancel-Button{
+    background-color: rgb(168, 3, 11);
+}
+
+.Containt-Buttons .Add-Button{
+    background-color: rgb(238, 86, 26);
 }

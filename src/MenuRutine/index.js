@@ -2,8 +2,11 @@ import './MenuRutine.css'
 import {ListChangeColor} from '../LIstChangeColor'
 import {ItemColor} from '../ItemColor'
 import React from 'react'
+import { ContextRutine } from '../TodoContext'
 
-export function MenuRutine({changedAll,changedComplete,setChangeColor,colors,setChangeTextColor}){
+export function MenuRutine(){
+    const {changedAll,changedComplete,setChangeColor,colors,setChangeTextColor} = React.useContext(ContextRutine)
+   
     const [close,setClose] = React.useState('none')
     return (
         <ul className='Menu-items'>

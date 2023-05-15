@@ -1,12 +1,12 @@
+import React from 'react';
 import './SearchRutine.css'
+import { ContextRutine } from '../TodoContext';
 
-export function SearchRutine({
-    serchValue,
-    setSerchValue,
-    color
-}){
-    let newColor = color;
-    if(color ==='white'){
+export function SearchRutine(){
+    const {serchValue,setSerchValue,changeColor } = React.useContext(ContextRutine)
+    
+    let newColor = changeColor;
+    if(changeColor==='white'){
         newColor = 'black'
     }
     return (

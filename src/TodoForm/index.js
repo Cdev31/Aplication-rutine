@@ -2,8 +2,10 @@ import React from 'react'
 import './TodoForm.css'
 import { ItemExercise } from './ItemExercise'
 import {v4 as uuid} from 'uuid'
+import { ContextRutine } from '../TodoContext'
 
-export function TodoForm({saveTodo,setOpenModal,changeColor,letra}){
+export function TodoForm(){
+    const {saveTodo,setOpenModal} =React.useContext(ContextRutine)
     const [count,setCount ] = React.useState(1)
     const newTodo = {
         id:uuid(),
@@ -15,10 +17,14 @@ export function TodoForm({saveTodo,setOpenModal,changeColor,letra}){
         completed: false
     }
     const [exercise,setExercise] = React.useState(newTodo)
-    console.log(exercise)
     const renderItems = ()=>{
         const items=[]
         for(let i =0;count > i;i++){
+            if(count > 4){
+                setCount(1)
+                break
+            }
+
             items.push(<ItemExercise 
                 setExercise={setExercise}
                 exercise={exercise}
@@ -27,7 +33,6 @@ export function TodoForm({saveTodo,setOpenModal,changeColor,letra}){
         }
         return items
     }
-    console.log(exercise)
     const newTodoRutine =(newTodo)=>{
         saveTodo(newTodo)
     }
@@ -38,10 +43,11 @@ export function TodoForm({saveTodo,setOpenModal,changeColor,letra}){
 
     return (
         <form 
-         style={{backgroundColor:changeColor}}
         className='Form-Create-Rutine'>
             <div className='Contain-Info'>
-            <label className='Muscle-Label'>Musculo:</label>
+            <h2>Crea tu rutina!!</h2>
+            <label
+            className='Muscle-Label'>Musculo:</label>
             <input 
              onBlur={(event)=>{
                 const newItem = {...exercise}
@@ -49,7 +55,8 @@ export function TodoForm({saveTodo,setOpenModal,changeColor,letra}){
                 setExercise(newItem)
              }}
             className='Input-Form Input-Muscle' type='text'></input>
-            <label className='Date-Label' >Dia:</label>
+            <label 
+            className='Date-Label' >Dia:</label>
             <input 
             onBlur={(event)=>{
                 const newItem = {...exercise}
@@ -73,11 +80,13 @@ export function TodoForm({saveTodo,setOpenModal,changeColor,letra}){
             <div className='Containt-Buttons'>
             <button
              type='submit'
+             className='Add-Button'
              onClick={()=>{
                 newTodoRutine(exercise)
              }}
             >Add</button>
             <button
+            className='Cancel-Button'
             type='button'
             onClick={()=>{
                 onCancel()

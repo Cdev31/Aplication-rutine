@@ -92,3 +92,17 @@
     transform: scale(1.05);
     color: rgb(36, 180, 0);
 }
+
+.Deleted-Rutine:hover{
+    transform: scale(1.05);
+    color: rgb(255, 14, 14);
+}
+
+.Item div{
+    display: flex;
+}
+
+.Deleted-Rutine{
+    padding-top: 2px;
+    padding-right: 10px;
+}

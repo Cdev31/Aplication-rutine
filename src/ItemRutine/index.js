@@ -1,28 +1,34 @@
 import './ItemRutine.css'
+import {CheckIcon} from '../Icons/CheckIcon'
+import {DeleteIcon} from '../Icons/DeleteIcon'
+import {CheckDeleteIcon} from '../Icons/CheckDeleteIcon'
 
-export function ItemRutine({musculo,ejercicios,dia,letra,rutine,onCheck,onCheckDelete,changeColor}){
+import React from 'react'
 
+export function ItemRutine({musculo,ejercicios,dia,letra,rutine,onCheck,onCheckDelete,changeColor,onDelete}){
+   
    return (
        <div style={{backgroundColor: changeColor}} className='Item' >
          <h2 style={{color:letra}}> Dia de {musculo} </h2>
+         <div>
          <p style={{color:letra}} className='Day-Item'>Dia de entreno {dia}</p>
+        <DeleteIcon
+        onDelete={onDelete}
+        />
+         </div>
          <ul style={{color:letra}} className='Item-Rutine'>
             {ejercicios.map((ejercicio)=>(
             <li 
             key={ejercicio.idItem}
             style={{color:letra}}>
-               <span 
-               onClick={()=>{
-                  onCheck(ejercicio.idItem,rutine)
-               }}
-               className='Item-Completed'>V </span>
+               <CheckIcon
+               onCheck={()=>onCheck(ejercicio.idItem,rutine)}
+               />
                <p className={`Item-Ejercicios ${ejercicio.done && "Item-Rutine-completed"}`} style={{color:letra}}>{ejercicio.ejercicio} </p>
                <p className={`Item-Series ${ejercicio.done && "Item-Rutine-completed"}`} style={{color:letra}}> series: {ejercicio.repeticiones}</p> 
-               <span 
-               onClick={()=>{
-                  onCheckDelete(ejercicio.idItem,rutine)
-               }}
-               className='Item-Eliminated'>X</span>
+               <CheckDeleteIcon
+               onCheckDelete={()=>onCheckDelete(ejercicio.idItem,rutine)}
+               />
             </li>)
            )
            }

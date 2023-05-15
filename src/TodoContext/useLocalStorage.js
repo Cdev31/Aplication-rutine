@@ -24,5 +24,10 @@ export function useLocalStorage(itemName,initialValue){
         setItem(newItem)
     }
 
-    return {item,changeItem,saveTodo}
+    const deleteItem = (newItem)=>{
+        localStorage.setItem(itemName,JSON.stringify(newItem))
+        setItem(newItem)
+    }
+
+    return {item,changeItem,saveTodo,deleteItem}
 }

@@ -33,11 +33,13 @@ export function ItemExercise({setExercise,exercise,index}){
 
     return (
         <div className='Containt-Exercise'>
-        <label>Ejercicio:</label>
+        <label
+        >Ejercicio:</label>
         <input 
         onBlur={handleExerciseChange}
          className='Input-Form Input-Form-Exercise' type='text'></input>
-        <label>series:</label>
+        <label
+        >series:</label>
         <input  
         onBlur={handleSeriesChange}
         className='Input-Form Input-Form-Exercise' type='text'></input>
