@@ -5,7 +5,7 @@ export function CheckDeleteIcon({onCheckDelete}){
     return (
         <TodoIcon
         type="checkDelete"
-        color="gray"
+        color="rgb(216, 186, 186)"
         onClick={onCheckDelete}
         />
     )

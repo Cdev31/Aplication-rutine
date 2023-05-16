@@ -15,10 +15,11 @@ export const ContextRutine = React.createContext()
 
 export function TodoRutineProvider({children}){
     const {item:todo,changeItem:changeTodo,saveTodo,deleteItem:deleteTodo} = useLocalStorage('TODOS_V1',[])
-    
+    const {item:color} = useLocalStorage('COLORS_V1',colors)
+
     const [serchValue,setSerchValue] = React.useState('')
-    const [changeColor,setChangeColor] = React.useState(colors[0].color)
-    const [changeTextColor,setChangeTextColor] = React.useState(colors[0].letra)
+    const [changeColor,setChangeColor] = React.useState(color[1].color)
+    const [changeTextColor,setChangeTextColor] = React.useState(color[1].letra)
     const [completed,setCompleted] = React.useState(todo)
     const [change, setChange] =React.useState(false)
     const [openModal,setOpenModal] = React.useState(false)
@@ -110,11 +111,13 @@ export function TodoRutineProvider({children}){
             setSerchValue,
             changeTextColor,
             setChangeColor,
+            // changedColor,
             changeColor,
             colors,
             setChangeTextColor,
             openModal,
-            setOpenModal
+            setOpenModal,
+            color
         }}
         >
             {children}

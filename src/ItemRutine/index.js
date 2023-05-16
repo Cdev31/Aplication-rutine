@@ -22,6 +22,7 @@ export function ItemRutine({musculo,ejercicios,dia,letra,rutine,onCheck,onCheckD
             key={ejercicio.idItem}
             style={{color:letra}}>
                <CheckIcon
+               completed={ejercicio.completed}
                onCheck={()=>onCheck(ejercicio.idItem,rutine)}
                />
                <p className={`Item-Ejercicios ${ejercicio.done && "Item-Rutine-completed"}`} style={{color:letra}}>{ejercicio.ejercicio} </p>

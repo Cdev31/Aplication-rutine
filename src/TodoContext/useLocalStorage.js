@@ -19,8 +19,10 @@ export function useLocalStorage(itemName,initialValue){
         localStorage.setItem(itemName,JSON.stringify(newTodo))
         setItem(newItem)
     }
+ 
     const changeItem = (newItem)=>{
-        localStorage.setItem(itemName,JSON.stringify(newItem))
+        const newItemChanged = [...item,newItem]
+        localStorage.setItem(itemName,JSON.stringify(newItemChanged))
         setItem(newItem)
     }
 
