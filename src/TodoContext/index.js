@@ -1,25 +1,16 @@
 import React from "react"
 import {useLocalStorage} from './useLocalStorage'
 
-
-const colors = [
-    {color: 'white',letra:'black'},
-    {color: 'rgb(4, 45, 156)',letra:'white'},
-    {color:'rgb(40, 156, 4)',letra:'white'},
-    {color:'rgb(211, 53, 5)',letra:'white'},
-    {color:'rgb(255, 166, 160)',letra:'white'},
-    {color:'rgb(255, 255, 125)',letra:'black'}
-  ]
-
 export const ContextRutine = React.createContext()
 
 export function TodoRutineProvider({children}){
     const {item:todo,changeItem:changeTodo,saveTodo,deleteItem:deleteTodo} = useLocalStorage('TODOS_V1',[])
-    const {item:color} = useLocalStorage('COLORS_V1',colors)
+    const {item:color} = useLocalStorage('COLORS_V1',[])
+    const {item:newColor,change:changeColors} = useLocalStorage('COLORS',[])
 
     const [serchValue,setSerchValue] = React.useState('')
-    const [changeColor,setChangeColor] = React.useState(color[1].color)
-    const [changeTextColor,setChangeTextColor] = React.useState(color[1].letra)
+    const [changeColor,setChangeColor] = React.useState(newColor.color)
+    const [changeTextColor,setChangeTextColor] = React.useState(color.letra)
     const [completed,setCompleted] = React.useState(todo)
     const [change, setChange] =React.useState(false)
     const [openModal,setOpenModal] = React.useState(false)
@@ -111,13 +102,13 @@ export function TodoRutineProvider({children}){
             setSerchValue,
             changeTextColor,
             setChangeColor,
-            // changedColor,
+            changeColors,
             changeColor,
-            colors,
             setChangeTextColor,
             openModal,
             setOpenModal,
-            color
+            color,
+            newColor
         }}
         >
             {children}

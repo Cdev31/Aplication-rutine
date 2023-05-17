@@ -11,7 +11,7 @@ import {ContextRutine} from '../TodoContext'
 
 export function AppUi(){
     const {openModal,serchRutine,onCheck,onCheckDelete,onDeleteRutine,
-          changeColor,changeTextColor,setCompleted} = React.useContext(ContextRutine)
+          changeColor,setCompleted,newColor} = React.useContext(ContextRutine)
 
     return (
     <>
@@ -27,7 +27,7 @@ export function AppUi(){
                  onCheckDelete={onCheckDelete}
                  setCompleted={setCompleted}
                  completed={rutineItem.completed}
-                 letra={changeTextColor}
+                 letra={newColor.letra}
                  changeColor={changeColor}
                  key={rutineItem.id}
                  musculo={rutineItem.musculo}

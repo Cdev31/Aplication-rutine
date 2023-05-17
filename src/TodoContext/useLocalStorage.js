@@ -15,8 +15,8 @@ export function useLocalStorage(itemName,initialValue){
     const [item,setItem] = React.useState(parsedItem)
     
     const saveTodo = (newItem)=>{
-        const newTodo = [...item,newItem]
-        localStorage.setItem(itemName,JSON.stringify(newTodo))
+        const newRutine = [...item,newItem]
+        localStorage.setItem(itemName,JSON.stringify(newRutine))
         setItem(newItem)
     }
  
@@ -26,10 +26,15 @@ export function useLocalStorage(itemName,initialValue){
         setItem(newItem)
     }
 
+    const change = (newItem) => {
+        localStorage.removeItem(itemName)
+        localStorage.setItem(itemName,JSON.stringify(newItem))
+        setItem(newItem)
+    }
     const deleteItem = (newItem)=>{
         localStorage.setItem(itemName,JSON.stringify(newItem))
         setItem(newItem)
     }
 
-    return {item,changeItem,saveTodo,deleteItem}
+    return {item,changeItem,saveTodo,deleteItem,change}
 }

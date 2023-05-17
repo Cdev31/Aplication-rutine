@@ -1,7 +1,7 @@
 import {v4 as uuid} from 'uuid'
 import './TodoForm.css'
 
-export function ItemExercise({setExercise,exercise,index}){
+export function ItemExercise({setExercise,newColor,exercise,index}){
 
     const handleExerciseChange = (event)=>{
         const {value} = event.target
@@ -9,6 +9,7 @@ export function ItemExercise({setExercise,exercise,index}){
         const newEjercicios = [...exercise.ejercicios]
         newEjercicios[index] = newExercise
 
+        console.log(newExercise)
         setExercise((prevExercise)=>(
             {
                 ...prevExercise,
@@ -34,13 +35,17 @@ export function ItemExercise({setExercise,exercise,index}){
     return (
         <div className='Containt-Exercise'>
         <label
+        style={{color: newColor.letra}}
         >Ejercicio:</label>
         <input 
+        style={{color: newColor.letra}}
         onBlur={handleExerciseChange}
          className='Input-Form Input-Form-Exercise' type='text'></input>
         <label
+        style={{color: newColor.letra}}
         >series:</label>
         <input  
+        style={{color: newColor.letra}}
         onBlur={handleSeriesChange}
         className='Input-Form Input-Form-Exercise' type='text'></input>
        </div>

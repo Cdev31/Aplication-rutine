@@ -5,7 +5,7 @@ import React from 'react'
 import { ContextRutine } from '../TodoContext'
 
 export function MenuRutine(){
-    const {changedAll,color:isColor,changedColor,changedComplete,setChangeColor,colors,setChangeTextColor} = React.useContext(ContextRutine)
+    const {changedAll,changeColors,changedColor,changedComplete,setChangeColor,color,setChangeTextColor} = React.useContext(ContextRutine)
    
     const [close,setClose] = React.useState('none')
     return (
@@ -26,7 +26,7 @@ export function MenuRutine(){
              }}
             > Cambiar tema</li>
                     <ListChangeColor close={close}>
-                        {colors.map((color)=>           
+                        {color.map((color)=>           
                             <ItemColor 
                             close={close}
                             setClose={setClose}
@@ -35,9 +35,8 @@ export function MenuRutine(){
                             changedColor={changedColor}
                             setChangeColor={setChangeColor}
                             color={color.color}
-                            colors={isColor}
-                            />
-                            
+                            colors= {changeColors}
+                            />   
                         )
                         }
                     </ListChangeColor>
