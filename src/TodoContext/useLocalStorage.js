@@ -1,36 +1,40 @@
 import React from "react";
 
+
 export function useLocalStorage(itemName,initialValue){
+    
+    let parsedItem;
     const localStorageItem = localStorage.getItem(itemName)
 
-    let parsedItem;
-   
     if(!localStorageItem){
         localStorage.setItem(itemName,JSON.stringify(initialValue))
         parsedItem = initialValue
     }else{
-     parsedItem = JSON.parse(localStorageItem)
-    }
-
-    const [item,setItem] = React.useState(parsedItem)
+    parsedItem = JSON.parse(localStorageItem)
+    }    
     
+    const [item,setItem] = React.useState(parsedItem)
+
+    //Guardar en localstorage
     const saveTodo = (newItem)=>{
         const newRutine = [...item,newItem]
         localStorage.setItem(itemName,JSON.stringify(newRutine))
-        setItem(newItem)
-    }
- 
-    const changeItem = (newItem)=>{
-        const newItemChanged = [...item,newItem]
-        localStorage.setItem(itemName,JSON.stringify(newItemChanged))
-        setItem(newItem)
+        setItem(newItem) 
     }
 
-    const change = (newItem) => {
-        localStorage.removeItem(itemName)
+    //Cambiar datos en localstorage
+    const changeItem = (newItem)=>{
         localStorage.setItem(itemName,JSON.stringify(newItem))
         setItem(newItem)
     }
+
+    //Actualizar el localstorage
+    const change = (newItem) => {
+        localStorage.setItem(itemName,JSON.stringify(newItem))
+        setItem(newItem)
+    }
+    
+    //Eliminar datos del localstorage
     const deleteItem = (newItem)=>{
         localStorage.setItem(itemName,JSON.stringify(newItem))
         setItem(newItem)

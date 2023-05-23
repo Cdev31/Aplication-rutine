@@ -9,7 +9,6 @@ export function ItemExercise({setExercise,newColor,exercise,index}){
         const newEjercicios = [...exercise.ejercicios]
         newEjercicios[index] = newExercise
 
-        console.log(newExercise)
         setExercise((prevExercise)=>(
             {
                 ...prevExercise,

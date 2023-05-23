@@ -1,6 +1,11 @@
 import React from "react"
 import {useLocalStorage} from './useLocalStorage'
 
+// const colorDefault = 
+// [{"color":"white","letra":"black"},{"color":"rgb(0, 28, 104)","letra":"white"},
+// {"color":"rgb(17, 104, 0)","letra":"white"},{"color":"rgb(211, 53, 5)","letra":"white"},
+// {"color":"rgb(104, 0, 40)","letra":"white"},{"color":"rgb(255, 255, 92)","letra":"black"}]
+
 export const ContextRutine = React.createContext()
 
 export function TodoRutineProvider({children}){
@@ -14,6 +19,8 @@ export function TodoRutineProvider({children}){
     const [completed,setCompleted] = React.useState(todo)
     const [change, setChange] =React.useState(false)
     const [openModal,setOpenModal] = React.useState(false)
+    const [openCompleted,setOpenCompleted] = React.useState(false)
+   
 
   const serchRutine = completed.filter((value)=> {
     const serchedRutine = value.musculo.toLowerCase()
@@ -52,6 +59,7 @@ export function TodoRutineProvider({children}){
 
     if(lengthDone === counter){
       newRutine[index].completed = true
+      setOpenCompleted(true)
     }
     changeTodo(newRutine)
   }
@@ -108,7 +116,9 @@ export function TodoRutineProvider({children}){
             openModal,
             setOpenModal,
             color,
-            newColor
+            newColor,
+            setOpenCompleted,
+            openCompleted
         }}
         >
             {children}

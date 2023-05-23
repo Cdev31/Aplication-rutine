@@ -7,11 +7,11 @@ import {ListRutine} from '../ListRutine'
 import {Modal} from '../Moda'
 import {TodoForm} from '../TodoForm'
 import {ContextRutine} from '../TodoContext'
+import {CompletedMessage} from '../Completed'
 
 
 export function AppUi(){
-    const {openModal,serchRutine,onCheck,onCheckDelete,onDeleteRutine,
-          changeColor,setCompleted,newColor} = React.useContext(ContextRutine)
+    const {openModal,serchRutine,onDeleteRutine,newColor,openCompleted} = React.useContext(ContextRutine)
 
     return (
     <>
@@ -23,17 +23,14 @@ export function AppUi(){
                <ItemRutine
                  onDelete={()=>onDeleteRutine(rutineItem.id)}
                  rutine={rutineItem.id}
-                 onCheck={onCheck}
-                 onCheckDelete={onCheckDelete}
-                 setCompleted={setCompleted}
                  completed={rutineItem.completed}
                  letra={newColor.letra}
-                 changeColor={changeColor}
                  key={rutineItem.id}
                  musculo={rutineItem.musculo}
                  ejercicios={rutineItem.ejercicios}
                  dia={rutineItem.dia}
                />
+
              )}
             </ListRutine>
     <CreateRutineButton />
@@ -43,6 +40,10 @@ export function AppUi(){
          />
        </Modal>
      )}
+     {openCompleted && (
+        <CompletedMessage/>
+      )
+       }
     </>
    )
 }
