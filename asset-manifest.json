@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Aplication-rutine/static/css/main.5e3c5e47.css",
-    "main.js": "/Aplication-rutine/static/js/main.2c5925da.js",
+    "main.js": "/Aplication-rutine/static/js/main.7df6e7d7.js",
     "static/js/787.4810eabc.chunk.js": "/Aplication-rutine/static/js/787.4810eabc.chunk.js",
     "index.html": "/Aplication-rutine/index.html",
     "static/media/CheckDelete.svg": "/Aplication-rutine/static/media/CheckDelete.d9c7e0eeb3f573572e1521b7b69ed33e.svg",
@@ -9,11 +9,11 @@
     "static/media/Completed.svg": "/Aplication-rutine/static/media/Completed.0121ba554592e3e70188cfea9584c675.svg",
     "static/media/Check.svg": "/Aplication-rutine/static/media/Check.af03c9a6a0411e40578874e6f00e807b.svg",
     "main.5e3c5e47.css.map": "/Aplication-rutine/static/css/main.5e3c5e47.css.map",
-    "main.2c5925da.js.map": "/Aplication-rutine/static/js/main.2c5925da.js.map",
+    "main.7df6e7d7.js.map": "/Aplication-rutine/static/js/main.7df6e7d7.js.map",
     "787.4810eabc.chunk.js.map": "/Aplication-rutine/static/js/787.4810eabc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5e3c5e47.css",
-    "static/js/main.2c5925da.js"
+    "static/js/main.7df6e7d7.js"
   ]
 }
