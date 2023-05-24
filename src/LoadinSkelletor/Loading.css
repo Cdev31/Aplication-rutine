@@ -1,0 +1,28 @@
+.Containt-Loading{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.Containt-Loading div{
+    background-color: rgba(0, 0, 0, 0.651);
+    min-width: 80px;
+    border-radius: 10px;
+    width: 450px;
+    height: 90px;
+    animation: loading 1s linear infinite;
+}
+
+
+@keyframes loading {
+    0% {
+      background-color:rgba(0, 0, 0, 0.651);
+    }
+    50% {
+     background-color: rgba(0, 0, 0, 0.795);
+    }
+    100% {
+    background-color:rgba(0, 0, 0, 0.651);
+    }
+  }

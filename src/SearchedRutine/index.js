@@ -3,7 +3,7 @@ import './SearchRutine.css'
 import { ContextRutine } from '../TodoContext';
 
 export function SearchRutine(){
-    const {serchValue,setSerchValue,changeColor } = React.useContext(ContextRutine)
+    const {serchValue,setSerchValue,setClose,changeColor } = React.useContext(ContextRutine)
     
     let newColor = changeColor;
     if(changeColor==='white'){
@@ -11,6 +11,9 @@ export function SearchRutine(){
     }
     return (
         <input
+        onClick={()=>{
+            setClose('none')
+        }}
         className='Input-Searching'
         style={
             {
@@ -21,7 +24,7 @@ export function SearchRutine(){
         onChange={(event)=>{
             setSerchValue(event.target.value)
         }}
-        placeholder='Search...'
+        placeholder='Buscar...'
         type="text"/>
 
         )

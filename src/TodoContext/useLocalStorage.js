@@ -2,19 +2,32 @@ import React from "react";
 
 
 export function useLocalStorage(itemName,initialValue){
+    const [loading,setLoading] = React.useState(true)
+    const [error,setError] = React.useState(false)
+    const [item,setItem] = React.useState(initialValue)
     
-    let parsedItem;
-    const localStorageItem = localStorage.getItem(itemName)
+    React.useEffect(()=>{
+        let parsedItem;
+        setTimeout(() => {
+            try {
+                const localStorageItem = localStorage.getItem(itemName)
+                if(!localStorageItem){
+                    localStorage.setItem(itemName,JSON.stringify(initialValue))
+                    parsedItem = initialValue
+                }
+                else{
+                parsedItem = JSON.parse(localStorageItem)
+            }  
+            setItem(parsedItem)
+            setLoading(false)
+            } catch (error) {
+                setLoading(false)
+                setError(true)
+            }
+        }, 2000);
+    }, [])
 
-    if(!localStorageItem){
-        localStorage.setItem(itemName,JSON.stringify(initialValue))
-        parsedItem = initialValue
-    }else{
-    parsedItem = JSON.parse(localStorageItem)
-    }    
     
-    const [item,setItem] = React.useState(parsedItem)
-
     //Guardar en localstorage
     const saveTodo = (newItem)=>{
         const newRutine = [...item,newItem]
@@ -39,6 +52,7 @@ export function useLocalStorage(itemName,initialValue){
         localStorage.setItem(itemName,JSON.stringify(newItem))
         setItem(newItem)
     }
-
-    return {item,changeItem,saveTodo,deleteItem,change}
+    
+   
+    return {item,changeItem,saveTodo,deleteItem,change,loading,error}
 }

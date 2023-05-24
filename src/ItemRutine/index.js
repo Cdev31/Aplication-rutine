@@ -6,12 +6,16 @@ import React from 'react'
 import { ContextRutine } from '../TodoContext'
 
 export function ItemRutine(
-   {musculo,ejercicios,dia,letra,rutine,onDelete}){
+   {musculo,ejercicios,dia,letra,completed,rutine,onDelete}){
    
-   const {changeColor,onCheck,onCheckDelete} = React.useContext(ContextRutine)
+   const {changeColor,onCheck,setClose,onCheckDelete} = React.useContext(ContextRutine)
    
    return (
-       <div style={{backgroundColor: changeColor}} className='Item' >
+       <div
+       onClick={()=>{
+         setClose('none')
+       }}
+       style={{backgroundColor: changeColor}} className='Item' >
          <h2 
          style={{color:letra}}> Dia de {musculo} </h2>
          <div>
@@ -29,14 +33,21 @@ export function ItemRutine(
                completed={ejercicio.done}
                onCheck={()=>
                {
-
-                  return onCheck(ejercicio.idItem,rutine)
+                 if(completed === true){
+                  return false
+                 }
+                return onCheck(ejercicio.idItem,rutine) 
                }}
                />
                <p className={`Item-Ejercicios ${ejercicio.done && "Item-Rutine-completed"}`} style={{color:letra}}>{ejercicio.ejercicio} </p>
                <p className={`Item-Series ${ejercicio.done && "Item-Rutine-completed"}`} style={{color:letra}}> series: {ejercicio.repeticiones}</p> 
                <CheckDeleteIcon
-               onCheckDelete={()=>onCheckDelete(ejercicio.idItem,rutine)}
+               onCheckDelete={()=>{
+                  if(completed === true){
+                     return false
+                  }
+                  return onCheckDelete(ejercicio.idItem,rutine)
+               }}
                />
             </li>)
            )

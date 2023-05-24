@@ -36,13 +36,22 @@
 
 .Icon-Container-check:hover .Icon-svg {
   fill: green;
+  cursor: pointer;
 }
 .Icon-Container-delete:hover .Icon-svg {
   fill: red;
+  cursor: pointer;
 }
 
 .Icon-Container-checkDelete:hover .Icon-svg{
   fill: red;
+  cursor: pointer;
+}
+
+.Icon-Container-checkDelete{
+  position:relative;
+  top: 5px;
+  left: 94%;
 }
 
 .Icon-Completed{

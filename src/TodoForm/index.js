@@ -103,7 +103,7 @@ export function TodoForm(){
              onClick={()=>{
                 newTodoRutine(exercise)
              }}
-            >Add</button>
+            >Agregar</button>
 
              {/* Boton para cancelar */}
             <button
@@ -112,7 +112,7 @@ export function TodoForm(){
             onClick={()=>{
                 onCancel()
             }}
-            >Cancel</button>
+            >Cancelar</button>
             </div>
         </form>
     )

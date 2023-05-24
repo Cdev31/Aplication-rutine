@@ -4,21 +4,26 @@ import {MenuRutine} from '../MenuRutine'
 import {ItemRutine} from '../ItemRutine'
 import {CreateRutineButton} from '../CreateRutineButton'
 import {ListRutine} from '../ListRutine'
-import {Modal} from '../Moda'
+import {Modal} from '../Modal'
 import {TodoForm} from '../TodoForm'
 import {ContextRutine} from '../TodoContext'
 import {CompletedMessage} from '../Completed'
-
+import {LoadingRutines} from '../LoadinSkelletor'
 
 export function AppUi(){
-    const {openModal,serchRutine,onDeleteRutine,newColor,openCompleted} = React.useContext(ContextRutine)
-
+    const {openModal,serchRutine,loading,
+      error,onDeleteRutine,newColor,openCompleted} = React.useContext(ContextRutine)
+    
     return (
     <>
     <MenuRutine />
     <SearchRutine 
     />
     <ListRutine>
+      {loading == true && (
+        <LoadingRutines/>
+      )
+      }
              {serchRutine.map((rutineItem)=>
                <ItemRutine
                  onDelete={()=>onDeleteRutine(rutineItem.id)}

@@ -6,8 +6,8 @@
     left: 90%;
     bottom:20px;
     font-size: 45px;
-    color: white;
-    background-color: rgb(19, 0, 124);
+    color: black;
+    background-color: white;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.521);
 }

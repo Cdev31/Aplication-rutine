@@ -5,18 +5,21 @@ import React from 'react'
 import { ContextRutine } from '../TodoContext'
 
 export function MenuRutine(){
-    const {changedAll,changeColors,changedColor,changedComplete,setChangeColor,color,setChangeTextColor} = React.useContext(ContextRutine)
+    const {
+        changedAll,changeColors,changedColor,changedComplete,
+        setChangeColor,color,setChangeTextColor,close,setClose} = React.useContext(ContextRutine)
    
-    const [close,setClose] = React.useState('none')
     return (
         <ul className='Menu-items'>
             <li
             onClick={()=>{
+                setClose('none')
                 changedAll()
             }}
             >Rutinas</li>
             <li
             onClick={()=>{
+                setClose('none')
                 changedComplete()
             }}
             >Rutinas completadas</li>
