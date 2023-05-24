@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Cdev31/Aplication-rutine.git/static/css/main.5e3c5e47.css",
+    "main.js": "/Cdev31/Aplication-rutine.git/static/js/main.e6d802a4.js",
+    "static/js/787.4810eabc.chunk.js": "/Cdev31/Aplication-rutine.git/static/js/787.4810eabc.chunk.js",
+    "index.html": "/Cdev31/Aplication-rutine.git/index.html",
+    "static/media/CheckDelete.svg": "/Cdev31/Aplication-rutine.git/static/media/CheckDelete.d9c7e0eeb3f573572e1521b7b69ed33e.svg",
+    "static/media/Delete.svg": "/Cdev31/Aplication-rutine.git/static/media/Delete.d9c7e0eeb3f573572e1521b7b69ed33e.svg",
+    "static/media/Completed.svg": "/Cdev31/Aplication-rutine.git/static/media/Completed.0121ba554592e3e70188cfea9584c675.svg",
+    "static/media/Check.svg": "/Cdev31/Aplication-rutine.git/static/media/Check.af03c9a6a0411e40578874e6f00e807b.svg",
+    "main.5e3c5e47.css.map": "/Cdev31/Aplication-rutine.git/static/css/main.5e3c5e47.css.map",
+    "main.e6d802a4.js.map": "/Cdev31/Aplication-rutine.git/static/js/main.e6d802a4.js.map",
+    "787.4810eabc.chunk.js.map": "/Cdev31/Aplication-rutine.git/static/js/787.4810eabc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e3c5e47.css",
+    "static/js/main.e6d802a4.js"
+  ]
+}
