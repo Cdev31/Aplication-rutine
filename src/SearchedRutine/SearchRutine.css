@@ -1,0 +1,28 @@
+
+.Input-Searching{
+    position: relative;
+    left: 32%;
+    width: 100px;
+    min-width: 100px ; 
+    min-height: 35px;
+    color: black;
+    border: 2px solid;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.Contain-Search{
+  display: flex;
+}
+
+
+.Input-Searching:focus{
+   transform: scale(1.04);
+   outline: none;
+   transition: 1s;
+   width: 450px;
+}

@@ -1,0 +1,17 @@
+.Item-Color{
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.384);
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: rgb(0, 0, 0);
+    font-size: 26px;
+    padding-left: 8px;
+    text-align: center;
+}
+.Item-Color:hover{
+    color:white;
+    transform: scale(1.02);
+}

@@ -1,0 +1,80 @@
+
+.Icon-container {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 48px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.Icon-container-check .Icon-svg{
+  position: absolute;
+  left: 12px;
+}
+
+
+.Icon-Container-delete .Icon-svg{
+  position: relative;
+  left: -1px;
+  top: 1px;
+  width: 14px;
+  height: 14px;
+}
+
+.Icon-Container-delete:hover {
+  color: red;
+}
+
+.Icon-svg {
+  width: 16px;
+  height: 16px;
+}
+
+
+.Icon-Container-check:hover .Icon-svg {
+  fill: green;
+  cursor: pointer;
+}
+.Icon-Container-delete:hover .Icon-svg {
+  fill: red;
+  cursor: pointer;
+}
+
+.Icon-Container-checkDelete:hover .Icon-svg{
+  fill: red;
+  cursor: pointer;
+}
+
+.Icon-Container-checkDelete{
+  position:relative;
+  top: 5px;
+  left: 94%;
+}
+
+.Icon-Completed{
+  position: relative;
+  left: 5%;
+  width: 160px;
+  height: 160px;
+  cursor: pointer;
+  animation: moveIcon 1s linear infinite; 
+}
+
+.Icon-Completed:hover{
+   transform: scale(1.02);
+}
+
+@keyframes moveIcon {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 15px;
+  }
+  100% {
+    left: 0;
+  }
+}
